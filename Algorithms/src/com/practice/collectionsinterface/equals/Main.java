@@ -10,7 +10,7 @@ public class Main {
 
         System.out.println(Objects.equals(student1,student3));
 
-        System.out.println(student1 == student3);
+        System.out.println(student1.hashCode() == student3.hashCode());
 
         System.out.println(student1.equals(student2));
 
