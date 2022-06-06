@@ -1,6 +1,6 @@
 package com.practice.generics.zoo;
 
-public class Cage<E> {
+public class Cage<E extends Animal> {
 
     private E animal1;
     private E animal2;
@@ -19,5 +19,13 @@ public class Cage<E> {
 
     public void setAnimal2(E animal2) {
         this.animal2 = animal2;
+    }
+
+    public boolean isCompatible() {
+        /**
+         * Here, we are able to access the Animal variables because we have the upper bound as Animal.
+         * And we are using parameterized type.
+         */
+        return this.animal1.getType().equals(this.animal2.getType());
     }
 }
