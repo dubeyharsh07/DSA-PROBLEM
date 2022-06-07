@@ -3,14 +3,8 @@ package com.practice.generics.zoo;
 public class ZooMain {
 
     public static void main(String[] args) {
-        Cage<Monkey> monkeyCage = new Cage<>();
-        Cage<Lion> lionCage = new Cage<>();
-
-        monkeyCage.setAnimal1(new Monkey());
-        monkeyCage.setAnimal2(new Monkey());
-
-        lionCage.setAnimal1(new Lion());
-        lionCage.setAnimal2(new Lion());
+        Cage<Monkey> monkeyCage = new Cage<>(new Monkey(),new Monkey());
+        Cage<Lion> lionCage = new Cage<>(new Lion(), new Lion());
 
         /**
             But this is very possible that monkey cage can have the Lion
@@ -34,6 +28,11 @@ public class ZooMain {
           */
         // Cage<String> stringCage = new Cage<>(); // This is the problem.
 
+        monkeyCage.eatFood();
+        lionCage.eatFood();
+
+        lionCage.getAnimal1().run();
+        lionCage.getAnimal2().run();
 
     }
 }

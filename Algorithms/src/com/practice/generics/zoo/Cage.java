@@ -1,9 +1,18 @@
 package com.practice.generics.zoo;
 
-public class Cage<E extends Animal> {
+public class Cage<E extends Animal & Eats & Runs> {
 
     private E animal1;
     private E animal2;
+
+    public Cage(){
+
+    }
+
+    public Cage(E animal1, E animal2) {
+        this.animal1 = animal1;
+        this.animal2 = animal2;
+    }
 
     public E getAnimal1() {
         return animal1;
@@ -27,5 +36,10 @@ public class Cage<E extends Animal> {
          * And we are using parameterized type.
          */
         return this.animal1.getType().equals(this.animal2.getType());
+    }
+
+    public void eatFood() {
+        this.animal1.eat();
+        this.animal2.eat();
     }
 }
